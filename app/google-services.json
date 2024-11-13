@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "98512648817",
+    "project_id": "mahunt-92007",
+    "storage_bucket": "mahunt-92007.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:98512648817:android:0c4238e6aea1630c47b9d0",
+        "android_client_info": {
+          "package_name": "com.utch.mahuntproyecto"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCY5YjkfN5-LdXDbmRL6tyNCeIc-7mkbjQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

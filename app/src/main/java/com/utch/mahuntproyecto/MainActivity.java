@@ -1,6 +1,10 @@
 package com.utch.mahuntproyecto;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +24,25 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        Button BTNLOGIN,BTNREGISTRO;
+
+        BTNLOGIN = findViewById(R.id.BTNLOGIN);
+        BTNREGISTRO = findViewById(R.id.BTNREGISTRO);
+
+        BTNLOGIN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Mensaje mientras tenemos usuairos
+                Toast.makeText(MainActivity.this, "Se hizo bien en el boton login", Toast.LENGTH_SHORT).show();
+            }
+        });
+        BTNREGISTRO.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(MainActivity.this, Registro.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }
