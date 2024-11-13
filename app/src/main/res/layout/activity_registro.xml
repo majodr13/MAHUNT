@@ -1,10 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#2ecc71"
     tools:context=".Registro">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="48dp"
+        android:gravity="center">
+
+        <EditText
+            android:id="@+id/correoEt"
+            android:hint="@string/correoEt"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:inputType="textEmailAddress"
+            android:textSize="15sp"
+            android:importantForAutofill="no" />
+
+        <EditText
+            android:id="@+id/passEt"
+            android:hint="@string/passEt"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:inputType="textPassword"
+            android:textSize="15sp"
+            android:importantForAutofill="no" />
+
+        <EditText
+            android:id="@+id/nombreEt"
+            android:hint="@string/nombreEt"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:inputType="text"
+            android:textSize="15sp"
+            android:importantForAutofill="no"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/fechaTxt"
+            android:text="@string/fechaTxt"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/Registrar"
+            android:text="@string/Registrar"
+            android:layout_marginTop="10dp"
+            android:background="#086A87"
+            android:textColor="#FFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</RelativeLayout>
+

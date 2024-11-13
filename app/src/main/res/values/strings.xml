@@ -3,4 +3,9 @@
 
     <string name="BTNLOGIN">LOGIN</string>
     <string name="BTNREGISTRO">REGISTRO</string>
+    <string name="correoEt">Correo Electronico</string>
+    <string name="passEt">Contraseña</string>
+    <string name="nombreEt">Nombre</string>
+    <string name="fechaTxt">Fecha</string>
+    <string name="Registrar">Registrar</string>
 </resources>
