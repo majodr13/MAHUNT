@@ -8,4 +8,8 @@
     <string name="nombreEt">Nombre</string>
     <string name="fechaTxt">Fecha</string>
     <string name="Registrar">Registrar</string>
+
+    <string name="correoLogin">Correo Electronico</string>
+    <string name="passLogin">Contraseña</string>
+    <string name="BtnLogin">Ingresar</string>
 </resources>

@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
         BTNLOGIN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Mensaje mientras tenemos usuairos
-                Toast.makeText(MainActivity.this, "Se hizo bien en el boton login", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this,Login.class);
+                startActivity(intent);
             }
         });
         BTNREGISTRO.setOnClickListener(new View.OnClickListener() {

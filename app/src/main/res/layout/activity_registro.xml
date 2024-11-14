@@ -16,33 +16,54 @@
         android:padding="48dp"
         android:gravity="center">
 
-        <EditText
-            android:id="@+id/correoEt"
-            android:hint="@string/correoEt"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:inputType="textEmailAddress"
-            android:textSize="15sp"
-            android:importantForAutofill="no" />
 
-        <EditText
-            android:id="@+id/passEt"
-            android:hint="@string/passEt"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:inputType="textPassword"
-            android:textSize="15sp"
-            android:importantForAutofill="no" />
+            android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/nombreEt"
-            android:hint="@string/nombreEt"
+            <EditText
+                android:id="@+id/correoEt"
+                android:hint="@string/correoEt"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:inputType="textEmailAddress"
+                android:textSize="15sp"
+                android:importantForAutofill="no" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:inputType="text"
-            android:textSize="15sp"
-            android:importantForAutofill="no"
-            android:textColor="#000000" />
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/passEt"
+                android:hint="@string/passEt"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:inputType="textPassword"
+                android:textSize="15sp"
+                android:importantForAutofill="no" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/nombreEt"
+                android:hint="@string/nombreEt"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:inputType="text"
+                android:textSize="15sp"
+                android:importantForAutofill="no"
+                android:textColor="#000000" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <TextView
             android:id="@+id/fechaTxt"
