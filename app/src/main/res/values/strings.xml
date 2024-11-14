@@ -12,4 +12,6 @@
     <string name="correoLogin">Correo Electronico</string>
     <string name="passLogin">Contraseña</string>
     <string name="BtnLogin">Ingresar</string>
+    
+    <string name="CerrarSesion">Cerrar sesion</string>
 </resources>
