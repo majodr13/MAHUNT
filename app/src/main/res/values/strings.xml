@@ -12,6 +12,16 @@
     <string name="correoLogin">Correo Electronico</string>
     <string name="passLogin">Contraseña</string>
     <string name="BtnLogin">Ingresar</string>
-    
+
+    <string name="MiPuntuaciontxt">Mi puntuación</string>
+    <string name="Patos"> --- </string>
+    <string name="uid"> --- </string>
+    <string name="correo"> --- </string>
+    <string name="nombre"> --- </string>
+    <string name="Menutxt">Menú</string>
+
+    <string name="JugarBtn">JUGAR</string>
+    <string name="PuntuacionesBtn">Puntuaciones</string>
+    <string name="AcercaDeBtn">Acerda de</string>
     <string name="CerrarSesion">Cerrar sesion</string>
 </resources>
