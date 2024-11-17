@@ -22,25 +22,99 @@
         </TextView>
 
         <TextView
-            android:id="@+id/Zombies"
+            android:id="@+id/Patos"
             android:text="@string/Patos"
             android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </TextView>
 
-        <ImageView
+        <!--IMAGEN-->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imagen"
+            android:src="@drawable/patos"
+            android:layout_width="150dp"
+            android:layout_height="150dp">
+
+        </androidx.appcompat.widget.AppCompatImageView>
+
+        <!--UID-->
+        <TextView
+            android:id="@+id/uid"
+            android:text="@string/uid"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:textSize="25sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-        </ImageView>
+        </TextView>
 
+        <!--CORREO-->
+        <TextView
+            android:id="@+id/correo"
+            android:text="@string/correo"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:textSize="25sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+        <!--NOMBRE-->
+        <TextView
+            android:id="@+id/nombre"
+            android:text="@string/nombre"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:textSize="25sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+        <!--TXT-->
+        <TextView
+            android:id="@+id/Menutxt"
+            android:text="@string/Menutxt"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:textSize="25sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <!--BTN CERRAR SESIÓN-->
         <Button
             android:id="@+id/CerrarSesion"
             android:text="@string/CerrarSesion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+        </Button>
 
+        <!--BTN JUGAR-->
+        <Button
+            android:id="@+id/JugarBtn"
+            android:text="@string/JugarBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </Button>
+
+        <!--BTN PUNTUACIONES-->
+        <Button
+            android:id="@+id/PuntuacionesBtn"
+            android:text="@string/PuntuacionesBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </Button>
+
+        <!--BTN ACERCA DE-->
+        <Button
+            android:id="@+id/AcercaDeBtn"
+            android:text="@string/AcercaDeBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
         </Button>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
