@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:padding="10dp"
         android:layout_gravity="center">
 
         <TextView
@@ -85,18 +86,15 @@
             android:layout_height="wrap_content">
         </TextView>
 
-        <!--BTN CERRAR SESIÓN-->
-        <Button
-            android:id="@+id/CerrarSesion"
-            android:text="@string/CerrarSesion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </Button>
+
 
         <!--BTN JUGAR-->
         <Button
             android:id="@+id/JugarBtn"
             android:text="@string/JugarBtn"
+            android:background="@drawable/boton_personalizado"
+            android:layout_marginTop="5dp"
+            android:textColor="#ffffff"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </Button>
@@ -105,6 +103,10 @@
         <Button
             android:id="@+id/PuntuacionesBtn"
             android:text="@string/PuntuacionesBtn"
+            android:background="@drawable/boton_personalizado"
+            android:textColor="#ffffff"
+            android:layout_marginTop="5dp"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </Button>
@@ -113,6 +115,22 @@
         <Button
             android:id="@+id/AcercaDeBtn"
             android:text="@string/AcercaDeBtn"
+            android:background="@drawable/boton_personalizado"
+            android:textColor="#ffffff"
+            android:layout_marginTop="5dp"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </Button>
+
+        <!--BTN CERRAR SESIÓN-->
+        <Button
+            android:id="@+id/CerrarSesion"
+            android:text="@string/CerrarSesion"
+            android:background="@drawable/boton_personalizado"
+            android:textColor="#ffffff"
+            android:layout_marginTop="5dp"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </Button>

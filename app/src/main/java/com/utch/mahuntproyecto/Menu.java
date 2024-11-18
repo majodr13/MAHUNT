@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -20,7 +21,8 @@ public class Menu extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseUser user;
 
-    Button CerrarSesion;
+    TextView MiPuntuaciontxt, uid, correo, nombre, Menutxt;
+    Button CerrarSesion, JugarBtn, PuntuacionesBtn, AcercaDeBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +32,43 @@ public class Menu extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance(); //Cambios video 5
         user = auth.getCurrentUser(); //Cambios video 5
-        CerrarSesion= findViewById(R.id.CerrarSesion); //Cambio video 6
+
+        MiPuntuaciontxt= findViewById(R.id.MiPuntuaciontxt);
+        uid= findViewById(R.id.uid);
+        correo= findViewById(R.id.correo);
+        nombre= findViewById(R.id.nombre);
+        Menutxt= findViewById(R.id.Menutxt);
+
+
+        CerrarSesion= findViewById(R.id.CerrarSesion);//Cambio video 6
+        JugarBtn= findViewById(R.id.JugarBtn);
+        PuntuacionesBtn= findViewById(R.id.PuntuacionesBtn);
+        AcercaDeBtn= findViewById(R.id.AcercaDeBtn);
+
+        JugarBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(Menu.this, "Jugar", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        PuntuacionesBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(Menu.this, "Puntuaciones", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        AcercaDeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(Menu.this, "Acerca de", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
 
         CerrarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
