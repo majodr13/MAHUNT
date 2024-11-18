@@ -1,6 +1,7 @@
 package com.utch.mahuntproyecto;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -53,6 +54,12 @@ public class Registro extends AppCompatActivity {
         nombreEt = findViewById(R.id.nombreEt);
         fechaTxt = findViewById(R.id.fechaTxt);
         Registrar = findViewById(R.id.Registrar);
+
+        //UBICACIÓN
+        String ubicacion = "fuentes/letra.TTF";
+        Typeface Tf = Typeface.createFromAsset(Registro.this.getAssets(), ubicacion);
+
+        Registrar.setTypeface(Tf);
 
         auth = FirebaseAuth.getInstance();
 

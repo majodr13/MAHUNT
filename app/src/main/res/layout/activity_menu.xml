@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <ScrollView
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -14,129 +14,118 @@
         android:padding="10dp"
         android:layout_gravity="center">
 
+        <!-- Texto Mi Puntuación -->
         <TextView
             android:id="@+id/MiPuntuaciontxt"
             android:text="@string/MiPuntuaciontxt"
             android:textSize="25sp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:gravity="center" /> <!-- Centrar el texto -->
 
-        </TextView>
-
+        <!-- Texto Patos -->
         <TextView
             android:id="@+id/Patos"
             android:text="@string/Patos"
-            android:layout_gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </TextView>
+            android:layout_height="wrap_content"
+            android:gravity="center" /> <!-- Centrar el texto -->
 
-        <!--IMAGEN-->
+        <!-- Imagen -->
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imagen"
             android:src="@drawable/patos"
             android:layout_width="150dp"
-            android:layout_height="150dp">
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp" /> <!-- Corregido -->
 
-        </androidx.appcompat.widget.AppCompatImageView>
-
-        <!--UID-->
+        <!-- Texto UID -->
         <TextView
             android:id="@+id/uid"
             android:text="@string/uid"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:textSize="25sp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:textSize="25sp" />
 
-        </TextView>
-
-        <!--CORREO-->
+        <!-- Texto Correo -->
         <TextView
             android:id="@+id/correo"
             android:text="@string/correo"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:textSize="25sp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:textSize="25sp" />
 
-        </TextView>
-
-        <!--NOMBRE-->
+        <!-- Texto Nombre -->
         <TextView
             android:id="@+id/nombre"
             android:text="@string/nombre"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:textSize="25sp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:textSize="25sp" />
 
-        </TextView>
-
-        <!--TXT-->
+        <!-- Texto Menú -->
         <TextView
             android:id="@+id/Menutxt"
             android:text="@string/Menutxt"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:textSize="25sp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </TextView>
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:textSize="25sp" />
 
-
-
-        <!--BTN JUGAR-->
+        <!-- Botón Jugar -->
         <Button
             android:id="@+id/JugarBtn"
             android:text="@string/JugarBtn"
             android:textSize="20dp"
             android:background="@drawable/boton_personalizado"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="25dp"
             android:textColor="#ffffff"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </Button>
+            android:layout_height="wrap_content" />
 
-        <!--BTN PUNTUACIONES-->
+        <!-- Botón Puntuaciones -->
         <Button
             android:id="@+id/PuntuacionesBtn"
             android:text="@string/PuntuacionesBtn"
+            android:textSize="20dp"
             android:background="@drawable/boton_personalizado"
             android:textColor="#ffffff"
             android:layout_marginTop="5dp"
-
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </Button>
+            android:layout_height="wrap_content" />
 
-        <!--BTN ACERCA DE-->
+        <!-- Botón Acerca de -->
         <Button
             android:id="@+id/AcercaDeBtn"
             android:text="@string/AcercaDeBtn"
+            android:textSize="20dp"
             android:background="@drawable/boton_personalizado"
             android:textColor="#ffffff"
             android:layout_marginTop="5dp"
-
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </Button>
+            android:layout_height="wrap_content" />
 
-        <!--BTN CERRAR SESIÓN-->
+        <!-- Botón Cerrar Sesión -->
         <Button
             android:id="@+id/CerrarSesion"
             android:text="@string/CerrarSesion"
+            android:textSize="20dp"
             android:background="@drawable/boton_personalizado"
             android:textColor="#ffffff"
             android:layout_marginTop="5dp"
-
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </Button>
+            android:layout_height="wrap_content" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    </ScrollView>
+</ScrollView>
+
+

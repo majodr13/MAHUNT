@@ -48,10 +48,11 @@
 
         <Button
             android:id="@+id/BtnLogin"
-            android:hint="@string/BtnLogin"
+            android:text="@string/BtnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#086A87"
+            android:textSize="20dp"
             android:textColor="#FFFFFF"
             android:layout_marginTop="10dp"/>
 

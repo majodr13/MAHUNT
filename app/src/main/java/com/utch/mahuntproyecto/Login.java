@@ -1,6 +1,7 @@
 package com.utch.mahuntproyecto;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -43,6 +44,12 @@ public class Login extends AppCompatActivity {
         passLogin = findViewById(R.id.passLogin);
         BtnLogin = findViewById(R.id.BtnLogin);
         auth = FirebaseAuth.getInstance();
+
+        String ubicacion = "fuentes/letra.TTF";
+        Typeface Tf = Typeface.createFromAsset(Login.this.getAssets(), ubicacion);
+
+        BtnLogin.setTypeface(Tf);
+
 
         BtnLogin.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,6 +1,7 @@
 package com.utch.mahuntproyecto;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -42,6 +43,10 @@ public class Menu extends AppCompatActivity {
         auth = FirebaseAuth.getInstance(); //Cambios video 5
         user = auth.getCurrentUser(); //Cambios video 5
 
+        //UBICACIÓN
+        String ubicacion = "fuentes/letra.TTF";
+        Typeface Tf = Typeface.createFromAsset(Menu.this.getAssets(), ubicacion);
+
         firebaseDatabase = FirebaseDatabase.getInstance();
         mahunt = firebaseDatabase.getReference("mahunt");
 
@@ -57,6 +62,17 @@ public class Menu extends AppCompatActivity {
         JugarBtn= findViewById(R.id.JugarBtn);
         PuntuacionesBtn= findViewById(R.id.PuntuacionesBtn);
         AcercaDeBtn= findViewById(R.id.AcercaDeBtn);
+
+        MiPuntuaciontxt.setTypeface(Tf);
+        uid.setTypeface(Tf);
+        correo.setTypeface(Tf);
+        nombre.setTypeface(Tf);
+        Menutxt.setTypeface(Tf);
+
+        CerrarSesion.setTypeface(Tf);
+        JugarBtn.setTypeface(Tf);
+        PuntuacionesBtn.setTypeface(Tf);
+        AcercaDeBtn.setTypeface(Tf);
 
         JugarBtn.setOnClickListener(new View.OnClickListener() {
             @Override

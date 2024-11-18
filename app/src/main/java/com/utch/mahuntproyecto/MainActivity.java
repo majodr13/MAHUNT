@@ -1,6 +1,7 @@
 package com.utch.mahuntproyecto;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,6 +29,13 @@ public class MainActivity extends AppCompatActivity {
 
         BTNLOGIN = findViewById(R.id.BTNLOGIN);
         BTNREGISTRO = findViewById(R.id.BTNREGISTRO);
+
+        //UBICACIÓN
+        String ubicacion = "fuentes/letra.TTF";
+        Typeface Tf = Typeface.createFromAsset(MainActivity.this.getAssets(), ubicacion);
+
+        BTNLOGIN.setTypeface(Tf);
+        BTNREGISTRO.setTypeface(Tf);
 
         BTNLOGIN.setOnClickListener(new View.OnClickListener() {
             @Override
