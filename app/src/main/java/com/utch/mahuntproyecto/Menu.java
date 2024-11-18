@@ -8,6 +8,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -15,8 +16,12 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class Menu extends AppCompatActivity {
 
@@ -103,6 +108,7 @@ public class Menu extends AppCompatActivity {
     //Cambios video 5
     private void UsuarioLogeado(){
         if (user != null){
+            Consulta();
             Toast.makeText(this, "Jugador en linea", Toast.LENGTH_SHORT).show();
         } else {
             startActivity(new Intent(Menu.this, MainActivity.class));
@@ -116,8 +122,27 @@ public class Menu extends AppCompatActivity {
         Toast.makeText(this, "Cerrado de sesion exitosamente", Toast.LENGTH_SHORT).show();
     }
 
-
+    //Consulta video 9
     private  void Consulta(){
+        //Consulta compara con el Email
+        Query query= mahunt.orderByChild("Email").equalTo(user.getEmail());
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot datasnapshot) {
+                for (DataSnapshot ds : datasnapshot.getChildren()){
+                    String patosString = ""+ds.child("Patos").getValue();
+                    String uidString = ""+ds.child("Uid").getValue();
+                    String emailString = ""+ ds.child("Email").getValue();
+                    String nombreString = ""+ds.child("Nombres").getValue();
 
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }
