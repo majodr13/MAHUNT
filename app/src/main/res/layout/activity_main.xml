@@ -20,7 +20,8 @@
         <Button
             android:id="@+id/BTNLOGIN"
             android:text="@string/BTNLOGIN"
-            android:background="#2ecc71 "
+            android:background="@drawable/boton_personalizado"
+            android:textColor="#ffffff"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -29,8 +30,10 @@
         <Button
             android:id="@+id/BTNREGISTRO"
             android:text="@string/BTNREGISTRO"
+
             android:layout_marginTop="10dp"
-            android:background="#2ecc71 "
+            android:background="@drawable/boton_personalizado"
+            android:textColor="#ffffff"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
