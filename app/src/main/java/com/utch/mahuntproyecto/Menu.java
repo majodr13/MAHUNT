@@ -15,11 +15,15 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Menu extends AppCompatActivity {
 
     FirebaseAuth auth;
     FirebaseUser user;
+    FirebaseDatabase firebaseDatabase; //Video 9
+    DatabaseReference mahunt; // Video 9
 
     TextView MiPuntuaciontxt, uid, correo, nombre, Menutxt;
     Button CerrarSesion, JugarBtn, PuntuacionesBtn, AcercaDeBtn;
@@ -32,6 +36,10 @@ public class Menu extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance(); //Cambios video 5
         user = auth.getCurrentUser(); //Cambios video 5
+
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        mahunt = firebaseDatabase.getReference("mahunt");
+
 
         MiPuntuaciontxt= findViewById(R.id.MiPuntuaciontxt);
         uid= findViewById(R.id.uid);
@@ -106,5 +114,10 @@ public class Menu extends AppCompatActivity {
         auth.signOut();
         startActivity(new Intent(Menu.this,MainActivity.class));
         Toast.makeText(this, "Cerrado de sesion exitosamente", Toast.LENGTH_SHORT).show();
+    }
+
+
+    private  void Consulta(){
+
     }
 }
