@@ -31,7 +31,7 @@ public class Menu extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase; //Video 9
     DatabaseReference mahunt; // Video 9
 
-    TextView MiPuntuaciontxt, uid, correo, nombre, Menutxt;
+    TextView MiPuntuaciontxt, uid, correo, nombre, Menutxt, Patos;
     Button CerrarSesion, JugarBtn, PuntuacionesBtn, AcercaDeBtn;
 
     @Override
@@ -52,6 +52,7 @@ public class Menu extends AppCompatActivity {
 
 
         MiPuntuaciontxt= findViewById(R.id.MiPuntuaciontxt);
+        Patos = findViewById(R.id.Patos);
         uid= findViewById(R.id.uid);
         correo= findViewById(R.id.correo);
         nombre= findViewById(R.id.nombre);
@@ -78,6 +79,18 @@ public class Menu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(Menu.this, "Jugar", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Menu.this,EscenarioJuego.class);
+
+                String Uids = uid.getText().toString();
+                String NombreS = nombre.getText().toString();
+                String PatosS = Patos.getText().toString();
+
+                intent.putExtra("UID", Uids);
+                intent.putExtra("NOMBRE", NombreS);
+                intent.putExtra("PATOS", PatosS);
+
+                startActivity(intent);
+                Toast.makeText(Menu.this, "ENVIANDO PARÁMETROS", Toast.LENGTH_SHORT).show();
             }
         });
 
