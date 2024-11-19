@@ -2,6 +2,7 @@ package com.utch.mahuntproyecto;
 
 import android.graphics.Point;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.view.Display;
 import android.view.View;
@@ -46,7 +47,8 @@ public class EscenarioJuego extends AppCompatActivity {
             AnchoTv = findViewById(R.id.AnchoTv);
             AltoTv = findViewById(R.id.AltoTv);
 
-            //Pantalla();
+            //Pantalla(); Porque esta comentado esto y dentro de un IF
+            CuentaAtras();
         }
 
         IvPatos.setOnClickListener(new View.OnClickListener() {
@@ -101,9 +103,20 @@ public class EscenarioJuego extends AppCompatActivity {
         IvPatos.setX(randomX);
         IvPatos.setY(randomY);
 
+    }
+    private void CuentaAtras(){
+        new CountDownTimer(30000, 1000) {
 
+            public void onTick(long millisUntilFinished) {
+                long segundosRestantes = millisUntilFinished/1000;
+                TvTiempo.setText(segundosRestantes+"S");
+            }
 
-
+            //Cuando se acaba
+            public void onFinish() {
+                TvTiempo.setText("0S");
+            }
+        }.start();
     }
 }
 
