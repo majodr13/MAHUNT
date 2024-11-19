@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Random;
+
 public class EscenarioJuego extends AppCompatActivity {
     private String UIDS, NOMBRES, PATOS;
     private TextView TvContador, TvNombre, TvTiempo;
@@ -19,6 +21,7 @@ public class EscenarioJuego extends AppCompatActivity {
     int AnchoPantalla;
     int AltoPantalla;
 
+    Random aleatorio;
     int contador = 0;
 
     @Override
@@ -59,6 +62,7 @@ public class EscenarioJuego extends AppCompatActivity {
                     public void run() {
                         // AQUI SE EJECUTA
                         IvPatos.setImageResource(R.drawable.patoconmira);
+                        Movimiento();
                     }
                 }, 500);
             }
@@ -79,6 +83,27 @@ public class EscenarioJuego extends AppCompatActivity {
 
         AnchoTv.setText(ANCHOS);
         AltoTv.setText(ALTOS);
+
+        aleatorio = new Random();
+    }
+
+    private  void Movimiento(){
+        int min =0;
+
+        //Maximo que se puede mover en  X
+        int MaximoX = AnchoPantalla-IvPatos.getWidth();
+        //Maximo que se puede mover en  Y
+        int MaximoY = AltoPantalla-IvPatos.getHeight();
+
+        int randomX= aleatorio.nextInt(((MaximoX-min)+1)+min);
+        int randomY= aleatorio.nextInt(((MaximoY-min)+1)+min);
+
+        IvPatos.setX(randomX);
+        IvPatos.setY(randomY);
+
+
+
+
     }
 }
 
