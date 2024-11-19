@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="#2ecc71"
+    android:layout_gravity="center">
+    
+    <TextView
+        android:id="@+id/SeacaboTXT"
+        android:text="@string/SeacaboTXT"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/HasmatadoTXT"
+        android:text="@string/HasmatadoTXT"
+        android:gravity="center"
+        android:textSize="20sp"
+
+        android:textColor="#ffffff"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </TextView>
+    <TextView
+        android:id="@+id/NumeroTXT"
+        android:text="@string/NumeroTXT"
+        android:gravity="center"
+        android:textSize="20sp"
+
+        android:textColor="#ffffff"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </TextView>
+
+   <!--aQUI FALTA LO DE ANIMACION DE ESCENARIO JUEGO PERO SALE NE ROJO-->
+
+    <Button
+        android:id="@+id/JUGARDENUEVO"
+        android:text="@string/JUGARDENUEVO"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="wrap_content">
+
+    </Button>
+    <Button
+        android:id="@+id/IRMENU"
+        android:text="@string/IRMENU"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:layout_height="wrap_content">
+
+    </Button>
+    <!--Este boton de puntajes creo que lo quitaremos -->
+    <Button
+
+        android:id="@+id/Puntajes"
+        android:text="@string/Puntajes"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </Button>
+
+
+
+    </LinearLayout>

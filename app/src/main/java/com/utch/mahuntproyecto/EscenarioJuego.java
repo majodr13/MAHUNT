@@ -1,13 +1,18 @@
 package com.utch.mahuntproyecto;
 
+import android.app.Dialog;
 import android.graphics.Point;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.view.Display;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Random;
@@ -23,6 +28,10 @@ public class EscenarioJuego extends AppCompatActivity {
     int AltoPantalla;
 
     Random aleatorio;
+
+    boolean GameOver = false;
+    Dialog miDialog;
+
     int contador = 0;
 
     @Override
@@ -34,6 +43,8 @@ public class EscenarioJuego extends AppCompatActivity {
         TvNombre = findViewById(R.id.TvNombre);
         TvTiempo = findViewById(R.id.TvTiempo);
         IvPatos = findViewById(R.id.IvPatos);
+
+        miDialog = new Dialog(EscenarioJuego.this);
 
         Bundle intent = getIntent().getExtras();
         if (intent != null) {
@@ -54,19 +65,22 @@ public class EscenarioJuego extends AppCompatActivity {
         IvPatos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                contador++;
-                TvContador.setText(String.valueOf(contador));
-                IvPatos.setImageResource(R.drawable.patoconmira);
+                if (!GameOver ) {
+                    contador++;
+                    TvContador.setText(String.valueOf(contador));
+                    IvPatos.setImageResource(R.drawable.patoconmira);
 
-                // NOS PERMITE EJECUTAR
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        // AQUI SE EJECUTA
-                        IvPatos.setImageResource(R.drawable.patoconmira);
-                        Movimiento();
-                    }
-                }, 500);
+                    // NOS PERMITE EJECUTAR
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            // AQUI SE EJECUTA
+                            IvPatos.setImageResource(R.drawable.patoconmira);
+                            Movimiento();
+                        }
+                    }, 500);
+                }
+
             }
         });
     }
@@ -115,8 +129,63 @@ public class EscenarioJuego extends AppCompatActivity {
             //Cuando se acaba
             public void onFinish() {
                 TvTiempo.setText("0S");
+                GameOver = true;
+                MensajeGameOver();
             }
         }.start();
+    }
+
+    private void MensajeGameOver() {
+        String ubicacion = "fuentes/letra.TTF";
+        Typeface typeface= Typeface.createFromAsset(EscenarioJuego.this.getAssets(),ubicacion);
+
+        TextView SeacaboTXT, HasmatadoTXT, NumeroTXT;
+        Button JUGARDENUEVO, IRMENU, Puntajes;
+
+        miDialog.setContentView(R.layout.gameover);
+
+        SeacaboTXT=miDialog.findViewById(R.id.SeacaboTXT);
+        HasmatadoTXT=miDialog.findViewById(R.id.HasmatadoTXT);
+        NumeroTXT=miDialog.findViewById(R.id.NumeroTXT);
+
+        JUGARDENUEVO=miDialog.findViewById(R.id.JUGARDENUEVO);
+        IRMENU=miDialog.findViewById(R.id.IRMENU);
+        Puntajes=miDialog.findViewById(R.id.Puntajes);
+
+        String patos = String.valueOf(contador);
+        NumeroTXT.setText(patos);
+
+        SeacaboTXT.setTypeface(typeface);
+        HasmatadoTXT.setTypeface(typeface);
+        NumeroTXT.setTypeface(typeface);
+
+        JUGARDENUEVO.setTypeface(typeface);
+        IRMENU.setTypeface(typeface);
+        Puntajes.setTypeface(typeface);
+
+        JUGARDENUEVO.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(EscenarioJuego.this,"Jugar de nuevo",Toast.LENGTH_SHORT).show();
+            }
+        });
+        IRMENU.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(EscenarioJuego.this,"Menu",Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        Puntajes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(EscenarioJuego.this,"Puntajes",Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        miDialog.show();
+
     }
 }
 
