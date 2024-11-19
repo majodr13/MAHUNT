@@ -18,10 +18,20 @@
     <string name="uid"> --- </string>
     <string name="correo"> --- </string>
     <string name="nombre"> --- </string>
+    <string name="fecha"> --- </string>
     <string name="Menutxt">Menú</string>
 
     <string name="JugarBtn">JUGAR</string>
     <string name="PuntuacionesBtn">Puntuaciones</string>
     <string name="AcercaDeBtn">Acerda de</string>
     <string name="CerrarSesion">Cerrar sesion</string>
+
+    <!--ESCENARIO-->
+    <string name="TvContador"> 0 </string>
+    <string name="TvNombre"> ---- </string>
+    <string name="TvTiempo"> 0S </string>
+
+    <!--PANTALLA-->
+    <string name="AnchoTv"> ---- </string>
+    <string name="AltoTv"> ---- </string>
 </resources>

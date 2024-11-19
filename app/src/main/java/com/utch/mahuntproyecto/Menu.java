@@ -1,5 +1,6 @@
 package com.utch.mahuntproyecto;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -31,9 +32,10 @@ public class Menu extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase; //Video 9
     DatabaseReference mahunt; // Video 9
 
-    TextView MiPuntuaciontxt, uid, correo, nombre, Menutxt, Patos;
+    TextView MiPuntuaciontxt, uid, correo, nombre, Menutxt, Patos, fecha;
     Button CerrarSesion, JugarBtn, PuntuacionesBtn, AcercaDeBtn;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +57,7 @@ public class Menu extends AppCompatActivity {
         Patos = findViewById(R.id.Patos);
         uid= findViewById(R.id.uid);
         correo= findViewById(R.id.correo);
+        fecha = findViewById(R.id.fecha);
         nombre= findViewById(R.id.nombre);
         Menutxt= findViewById(R.id.Menutxt);
 
@@ -75,23 +78,20 @@ public class Menu extends AppCompatActivity {
         PuntuacionesBtn.setTypeface(Tf);
         AcercaDeBtn.setTypeface(Tf);
 
-        JugarBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(Menu.this, "Jugar", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(Menu.this,EscenarioJuego.class);
+        JugarBtn.setOnClickListener(view -> {
+            Toast.makeText(Menu.this, "JUGAR", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(Menu.this, EscenarioJuego.class);
 
-                String Uids = uid.getText().toString();
-                String NombreS = nombre.getText().toString();
-                String PatosS = Patos.getText().toString();
+            String Uids = uid.getText().toString();
+            String NombreS = nombre.getText().toString();
+            String PatosS = Patos.getText().toString();
 
-                intent.putExtra("UID", Uids);
-                intent.putExtra("NOMBRE", NombreS);
-                intent.putExtra("PATOS", PatosS);
+            intent.putExtra("UID", Uids);
+            intent.putExtra("NOMBRE", NombreS);
+            intent.putExtra("PATO", PatosS);
 
-                startActivity(intent);
-                Toast.makeText(Menu.this, "ENVIANDO PARÁMETROS", Toast.LENGTH_SHORT).show();
-            }
+            startActivity(intent);
+            Toast.makeText(Menu.this, "ENVIANDO PARÁMETROS", Toast.LENGTH_SHORT).show();
         });
 
         PuntuacionesBtn.setOnClickListener(new View.OnClickListener() {
@@ -163,8 +163,13 @@ public class Menu extends AppCompatActivity {
                     String uidString = ""+ds.child("Uid").getValue();
                     String emailString = ""+ ds.child("Email").getValue();
                     String nombreString = ""+ds.child("Nombres").getValue();
+                    String fechaString = ""+ds.child("Fecha").getValue();
 
-
+                    Patos.setText(patosString);
+                    uid.setText(uidString);
+                    correo.setText(emailString);
+                    nombre.setText(nombreString);
+                    fecha.setText(fechaString);
                 }
             }
 

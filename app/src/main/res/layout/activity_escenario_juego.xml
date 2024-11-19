@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".EscenarioJuego"
     android:background="@drawable/fondo">
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -11,10 +13,38 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <!--INFORMACIÓN-->
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:orientation="horizontal">
+
+            <!--X y Y-->
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="15dp">
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <!-- X -->
+            <TextView
+                android:id="@+id/AnchoTv"
+                android:text="@string/AltoTv"
+                android:textColor="#FFFFFF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+
+            <!-- Y -->
+            <TextView
+                android:id="@+id/AltoTv"
+                android:text="@string/AltoTv"
+                android:textColor="#FFFFFF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
 
             <!--CAMBIAR A UNA SIN FONDO-->
             <androidx.appcompat.widget.AppCompatImageView
@@ -23,14 +53,35 @@
                 android:layout_height="80dp">
             </androidx.appcompat.widget.AppCompatImageView>
 
+            <!--CONTADOR DE PATOS-->
             <TextView
                 android:id="@+id/TvContador"
+                android:text="@string/TvContador"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:layout_marginStart="10dp"
+                android:layout_width="50dp"
+                android:layout_gravity="center"
+                android:layout_height="match_parent">
+            </TextView>
+
+            <!--NOMBRE DEL JUGADOR-->
+            <TextView
+                android:id="@+id/TvNombre"
+                android:text="@string/TvNombre"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:layout_marginStart="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent">
             </TextView>
 
             <TextView
-                android:id="@+id/TvNombre"
+                android:id="@+id/fecha"
+                android:text="@string/fecha"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:layout_marginStart="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent">
             </TextView>
@@ -41,10 +92,37 @@
                 android:layout_height="45dp"
                 android:layout_marginStart="15dp"
                 app:lottie_imageAssetsFolder="assets"
-                app:lottie_fileName="animación.json"
+                app:lottie_fileName="tiempo.json"
                 app:lottie_loop="true"
                 app:lottie_autoPlay="true">
             </com.airbnb.lottie.LottieAnimationView>
+
+            <!--TIEMPO-->
+            <TextView
+                android:id="@+id/TvTiempo"
+                android:text="@string/TvTiempo"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:layout_marginStart="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </TextView>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!--PATOS-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/IvPatos"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/patojuegoidk">
+            </androidx.appcompat.widget.AppCompatImageView>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
