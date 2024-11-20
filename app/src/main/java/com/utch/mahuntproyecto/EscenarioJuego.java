@@ -1,6 +1,7 @@
 package com.utch.mahuntproyecto;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Point;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -13,8 +14,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
 import java.util.Random;
 
 public class EscenarioJuego extends AppCompatActivity {
@@ -34,6 +44,12 @@ public class EscenarioJuego extends AppCompatActivity {
 
     int contador = 0;
 
+    FirebaseAuth  firebaseAuth;//video 16
+    FirebaseUser user;//video 16
+    FirebaseDatabase firebaseDatabase;//video 16
+    DatabaseReference Mahunt;//video 16
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +61,11 @@ public class EscenarioJuego extends AppCompatActivity {
         IvPatos = findViewById(R.id.IvPatos);
 
         miDialog = new Dialog(EscenarioJuego.this);
+
+        firebaseAuth = FirebaseAuth.getInstance(); //video 16
+        user = firebaseAuth.getCurrentUser(); //video 16
+        firebaseDatabase = FirebaseDatabase.getInstance();//video 16
+        Mahunt= firebaseDatabase.getReference("mahunt");//video 16
 
         Bundle intent = getIntent().getExtras();
         if (intent != null) {
@@ -131,6 +152,7 @@ public class EscenarioJuego extends AppCompatActivity {
                 TvTiempo.setText("0S");
                 GameOver = true;
                 MensajeGameOver();
+                GuardarResultados("Patos",contador);
             }
         }.start();
     }
@@ -166,14 +188,19 @@ public class EscenarioJuego extends AppCompatActivity {
         JUGARDENUEVO.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(EscenarioJuego.this,"Jugar de nuevo",Toast.LENGTH_SHORT).show();
+                contador=0;
+                miDialog.dismiss();
+                TvContador.setText("0");
+                GameOver=false;
+                CuentaAtras();
+                Movimiento();
+
             }
         });
         IRMENU.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(EscenarioJuego.this,"Menu",Toast.LENGTH_SHORT).show();
-
+                startActivity(new Intent(EscenarioJuego.this,Menu.class));
             }
         });
         Puntajes.setOnClickListener(new View.OnClickListener() {
@@ -186,6 +213,17 @@ public class EscenarioJuego extends AppCompatActivity {
 
         miDialog.show();
 
+    }
+
+    private void GuardarResultados(String key, int patos){
+        HashMap<String,Object> hashMap = new HashMap<>();
+        hashMap.put(key,patos);
+        Mahunt.child(user.getUid()).updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                Toast.makeText(EscenarioJuego.this, "El puntaje se actualizo", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
 
