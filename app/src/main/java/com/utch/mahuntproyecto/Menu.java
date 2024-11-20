@@ -160,41 +160,46 @@ public class Menu extends AppCompatActivity {
 
     //Consulta video 9
     private void Consulta() {
+        if (user == null || user.getUid() == null) {
+            Toast.makeText(this, "Error: Usuario no autenticado", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-        // Accede a la colección "mahunt" y busca el documento por el correo del usuario
+        String userUid = user.getUid(); // UID del usuario autenticado
+
+        // Accede a Firestore y busca el documento por el campo "Uid"
         db.collection("mahunt")
-                .whereEqualTo("Email", user.getEmail()) // Filtra por correo electrónico
+                .whereEqualTo("Uid", userUid) // Filtra por el campo "Uid"
                 .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            if (!task.getResult().isEmpty()) {
-                                for (QueryDocumentSnapshot document : task.getResult()) {
-                                    // Extrae los datos
-                                    String patosString = document.getString("Patos");
-                                    String uidString = document.getString("Uid");
-                                    String emailString = document.getString("Email");
-                                    String nombreString = document.getString("Nombres");
-                                    String fechaString = document.getString("Fecha");
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        if (!task.getResult().isEmpty()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                // Extrae los datos del documento
+                                String patosString = String.valueOf(document.get("Patos"));
+                                String uidString = document.getString("Uid");
+                                String emailString = document.getString("Email");
+                                String nombreString = document.getString("Nombres");
+                                String fechaString = document.getString("Fecha");
 
-                                    // Muestra los datos en los TextView
-                                    Patos.setText(patosString);
-                                    uid.setText(uidString);
-                                    correo.setText(emailString);
-                                    nombre.setText(nombreString);
-                                    fecha.setText(fechaString);
+                                // Muestra los datos en los TextView
+                                Patos.setText(patosString);
+                                uid.setText(uidString);
+                                correo.setText(emailString);
+                                nombre.setText(nombreString);
+                                fecha.setText(fechaString);
 
-                                    Toast.makeText(Menu.this, "Datos cargados correctamente", Toast.LENGTH_SHORT).show();
-                                }
-                            } else {
-                                Toast.makeText(Menu.this, "No se encontraron datos para el usuario", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Menu.this, "Datos cargados correctamente", Toast.LENGTH_SHORT).show();
+                                break; // Termina después de encontrar el primer documento
                             }
                         } else {
-                            Toast.makeText(Menu.this, "Error al consultar datos: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Menu.this, "No se encontraron datos para el usuario", Toast.LENGTH_SHORT).show();
                         }
+                    } else {
+                        Toast.makeText(Menu.this, "Error al consultar datos: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }
+
 
 }

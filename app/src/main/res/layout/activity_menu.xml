@@ -15,6 +15,7 @@
         android:layout_gravity="center">
 
         <!-- Texto Mi Puntuación -->
+
         <TextView
             android:id="@+id/MiPuntuaciontxt"
             android:text="@string/MiPuntuaciontxt"
@@ -92,6 +93,7 @@
             android:layout_height="wrap_content" />
 
         <!-- Botón Puntuaciones -->
+
         <Button
             android:id="@+id/PuntuacionesBtn"
             android:text="@string/PuntuacionesBtn"
@@ -103,6 +105,7 @@
             android:layout_height="wrap_content" />
 
         <!-- Botón Acerca de -->
+
         <Button
             android:id="@+id/AcercaDeBtn"
             android:text="@string/AcercaDeBtn"

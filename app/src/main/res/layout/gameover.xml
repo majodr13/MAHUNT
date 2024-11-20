@@ -66,6 +66,7 @@
 
     </Button>
     <!--Este boton de puntajes creo que lo quitaremos -->
+
     <Button
 
         android:id="@+id/Puntajes"
