@@ -79,6 +79,7 @@ public class Login extends AppCompatActivity {
                             FirebaseUser user = auth.getCurrentUser();
                             startActivity(new Intent(Login.this, Menu.class));
                             assert user != null;
+                            //finish();
                             Toast.makeText(Login.this,"BIENVENIDO(A)" + user.getEmail(), Toast.LENGTH_SHORT).show();
                         }
                     }

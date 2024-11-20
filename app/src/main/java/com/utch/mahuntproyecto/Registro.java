@@ -124,6 +124,7 @@ public class Registro extends AppCompatActivity {
                                         public void onSuccess(DocumentReference documentReference) {
                                             Toast.makeText(Registro.this, "Usuario registrado exitosamente", Toast.LENGTH_SHORT).show();
                                             startActivity(new Intent(Registro.this, Menu.class));
+                                            //finish();
                                         }
                                     })
                                     .addOnFailureListener(new OnFailureListener() {

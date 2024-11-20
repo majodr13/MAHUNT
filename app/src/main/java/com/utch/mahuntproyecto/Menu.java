@@ -144,7 +144,7 @@ public class Menu extends AppCompatActivity {
     //Cambios video 5
     private void UsuarioLogeado(){
         if (user != null){
-            Consulta();
+            //Consulta();
             Toast.makeText(this, "Jugador en linea", Toast.LENGTH_SHORT).show();
         } else {
             startActivity(new Intent(Menu.this, MainActivity.class));

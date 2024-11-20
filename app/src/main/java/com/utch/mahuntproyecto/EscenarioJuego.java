@@ -79,7 +79,7 @@ public class EscenarioJuego extends AppCompatActivity {
             AnchoTv = findViewById(R.id.AnchoTv);
             AltoTv = findViewById(R.id.AltoTv);
 
-            //Pantalla(); Porque esta comentado esto y dentro de un IF
+            Pantalla();// Porque esta comentado esto y dentro de un IF
             CuentaAtras();
         }
 
