@@ -7,6 +7,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.widget.Button;
@@ -23,6 +24,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.HashMap;
 import java.util.Random;
@@ -140,7 +143,7 @@ public class EscenarioJuego extends AppCompatActivity {
 
     }
     private void CuentaAtras(){
-        new CountDownTimer(30000, 1000) {
+        new CountDownTimer(10000, 1000) {
 
             public void onTick(long millisUntilFinished) {
                 long segundosRestantes = millisUntilFinished/1000;
@@ -215,16 +218,51 @@ public class EscenarioJuego extends AppCompatActivity {
 
     }
 
-    private void GuardarResultados(String key, int patos){
-        HashMap<String,Object> hashMap = new HashMap<>();
-        hashMap.put(key,patos);
-        Mahunt.child(user.getUid()).updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                Toast.makeText(EscenarioJuego.this, "El puntaje se actualizo", Toast.LENGTH_SHORT).show();
-            }
-        });
+    private void GuardarResultados(String key, int patos) {
+        if (user == null || user.getUid() == null) {
+            Toast.makeText(this, "Error: Usuario no autenticado", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // UID del usuario autenticado
+        String userUid = user.getUid();
+
+        // Referencia a Firestore
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        // Busca el documento donde el campo "Uid" coincide con la UID del usuario
+        db.collection("mahunt")
+                .whereEqualTo("Uid", userUid)
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        if (!task.getResult().isEmpty()) {
+                            // Obtiene el primer documento encontrado
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                String documentId = document.getId();
+
+                                // Actualiza el campo "Patos" en el documento
+                                db.collection("mahunt")
+                                        .document(documentId)
+                                        .update(key, patos)
+                                        .addOnSuccessListener(aVoid -> {
+                                            Toast.makeText(EscenarioJuego.this, "El puntaje se actualizó correctamente", Toast.LENGTH_SHORT).show();
+                                        })
+                                        .addOnFailureListener(e -> {
+                                            Toast.makeText(EscenarioJuego.this, "Error al actualizar el puntaje: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                        });
+                                break; // Sale del bucle después de encontrar y actualizar el documento
+                            }
+                        } else {
+                            Toast.makeText(EscenarioJuego.this, "No se encontró un documento con este UID", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(EscenarioJuego.this, "Error al buscar el documento: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
+
+
 }
 
 
